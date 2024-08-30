@@ -62,7 +62,7 @@ const RecipeDescription = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/retrieveById/retrieve/${recipeId}`, {
+            const response = await fetch(`https://recipe-website-lyart.vercel.app/retrieveById/retrieve/${recipeId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const RecipeDescription = () => {
     useEffect(() => {
         const fetchRecipe = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/retrieveById/retrieve/${recipeId}`);
+                const response = await fetch(`https://recipe-website-lyart.vercel.app/retrieveById/retrieve/${recipeId}`);
                 if (!response.ok) {
                     throw new Error('Recipe not found');
                 }
@@ -114,7 +114,7 @@ const RecipeDescription = () => {
             <div className="container mx-auto py-12 px-4 pt-24">
                 <ToastContainer />
                 <h2 className="text-3xl font-bold mb-6">{recipe.title}</h2>
-                <img src={`http://localhost:3000/${recipe.image}`} alt={recipe.title} className="w-full h-64 object-cover mb-4" />
+                <img src={`https://recipe-website-lyart.vercel.app/${recipe.image}`} alt={recipe.title} className="w-full h-64 object-cover mb-4" />
                 <p className="text-gray-800 mb-4">{recipe.description}</p>
 
                 <div className="mt-8">

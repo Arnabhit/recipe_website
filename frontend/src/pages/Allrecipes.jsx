@@ -9,7 +9,7 @@ const Allrecipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/retrieve/retrieve`, {
+        const response = await fetch(`https://recipe-website-lyart.vercel.app/retrieve/retrieve`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const Allrecipes = () => {
               {filteredRecipes.map((recipe) => (
                 <div key={recipe._id} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
                   <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src={`http://localhost:3000/${recipe.image}`} alt={recipe.title} className="w-full h-48 object-cover" />
+                    <img src={`https://recipe-website-lyart.vercel.app/${recipe.image}`} alt={recipe.title} className="w-full h-48 object-cover" />
                     <div className="p-4">
                       <h3 className="text-xl font-semibold">{recipe.title}</h3>
                       <p className="text-gray-600 mt-2">{recipe.description}</p>

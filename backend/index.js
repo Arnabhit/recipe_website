@@ -35,6 +35,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/retrieve", retrieveRecipe);
 app.use("/retrieveById", retrieveRecipeById);
 app.use("/ReviewRecipe", reviewrecipe);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

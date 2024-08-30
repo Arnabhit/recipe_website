@@ -16,7 +16,7 @@ const Category = () => {
         const fetchRecipes = async () => {
             try {
                 
-                const response = await fetch(`http://localhost:3000/retrieve/retrieve`);
+                const response = await fetch(`https://recipe-website-lyart.vercel.app/retrieve/retrieve`);
                 const data = await response.json();
                 setRecipes(data);
             } catch (error) {
@@ -49,7 +49,7 @@ const Category = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filteredRecipes.map(recipes => (
                     <div key={recipes.id} className="bg-white shadow-md rounded-lg overflow-hidden">
-                        <img src={`http://localhost:3000/${recipes.image}`} alt={recipes.title} className="w-full h-48 object-cover" />
+                        <img src={`https://recipe-website-lyart.vercel.app/${recipes.image}`} alt={recipes.title} className="w-full h-48 object-cover" />
                         <div className="p-4">
                             <h2 className="text-xl font-bold mb-2">{recipes.title}</h2>
                             <p className="text-gray-800 mb-4">{recipes.description}</p>
