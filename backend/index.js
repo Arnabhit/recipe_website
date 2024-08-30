@@ -8,6 +8,7 @@ const path = require('path');
 const app = express();
 const retrieveRecipe = require('./Routes/retrieveRecipe');
 const retrieveRecipeById = require('./Routes/retrieveRecipeById');
+const reviewrecipe = require('./Routes/reviewrecipe');
 const port = process.env.PORT || 3000;
 
 app.use(cors());
@@ -33,6 +34,7 @@ app.use("/recipe",reciperouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/retrieve", retrieveRecipe);
 app.use("/retrieveById", retrieveRecipeById);
+app.use("/ReviewRecipe", reviewrecipe);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

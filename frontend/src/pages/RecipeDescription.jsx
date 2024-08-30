@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDescription = () => {
-    const { recipeId } = useParams();
+    let { recipeId } = useParams();
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,6 +47,9 @@ const RecipeDescription = () => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
+    const handleReview = () => {
+        navigate(`/ReviewRecipe/${recipeId}/rec`);
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -154,7 +157,7 @@ const RecipeDescription = () => {
                         <p>No reviews yet.</p>
                     )}
                 </div>
-
+                <div className="flex">
                 <div className="mt-8">
                     {currentUser && currentUser.id === recipe.author && (
                         <button
@@ -165,7 +168,20 @@ const RecipeDescription = () => {
                         </button>
                     )}
                 </div>
+                <div className="mt-8">
+                    
+                        <button
+                            onClick={handleReview}
+                            className="bg-blue-500 text-white px-4 py-2 rounded ml-8"
+                        >
+                            Add Review
+                        </button>
+                    
+                </div>
 
+
+                </div>
+                
                 {isModalOpen && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div className="bg-white p-8 rounded shadow-lg">

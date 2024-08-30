@@ -131,9 +131,9 @@ const HomePage = ({ category }) => {
         <h2 className="text-3xl font-bold mb-6">Vegetarian Recipes</h2>
         <Slider {...settings}>
           {recipes
-            .filter((recipe) => recipe.category === "Vegetarian")
+            .filter((recipe) => recipe.category === "Non-Vegetarian")
             .map((recipe) => (
-              <div key={recipe._id} className="p-2">
+                <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
                     src={`http://localhost:3000/${recipe.image}`}
@@ -162,6 +162,7 @@ const HomePage = ({ category }) => {
             ))}
         </Slider>
       </section>
+
 
       {/* Non-Vegetarian Recipes Section */}
       <section className="container mx-auto py-12 px-4 bg-green-50">

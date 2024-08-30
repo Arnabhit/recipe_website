@@ -7,6 +7,10 @@ const reviewSchema = new mongoose.Schema({
     ref: 'Business',
     required: true,
   },
+  Category:{
+    type: String,
+    required: true,
+  },
   reviewText: {
     type: String,
     required: true,

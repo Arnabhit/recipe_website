@@ -56,8 +56,8 @@ const Navbar = () => {
         </div>
         <ul className={`lg:flex lg:items-center lg:space-x-8 ${isOpen ? 'block' : 'hidden'} lg:block`}>
           <li><Link to="/" className="text-white hover:text-gray-300">Home</Link></li>
-          <li><Link href="/allrecipes" className="text-white hover:text-gray-300">Recipes</Link></li>
-          <li><Link href="/Category" className="text-white hover:text-gray-300">Categories</Link></li>
+          <li><Link to="/allrecipes" className="text-white hover:text-gray-300">Recipes</Link></li>
+          <li><Link to="/Category" className="text-white hover:text-gray-300">Categories</Link></li>
           <li><a href="/recipe" className="text-white hover:text-gray-300">Submit Recipe</a></li>
           {isLoggedIn ? (
             <>

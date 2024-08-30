@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { jwtDecode } from "jwt-decode";
 
 const Recipe = () => {
   const [recipeData, setRecipeData] = useState({
@@ -13,6 +14,7 @@ const Recipe = () => {
     cookingTime: '',
     servings: '',
     tags: [],
+    author:'',
   });
   const [image, setImage] = useState(null);
 
@@ -23,6 +25,14 @@ const Recipe = () => {
     if (!token) {
       toast('Please log in first!');
       navigate('/signin'); // Redirect to the login page
+    }
+    else
+    {
+      const decodedToken = jwtDecode(token);
+      setRecipeData((prevData) => ({
+        ...prevData,
+        author: decodedToken.userId,
+      }));
     }
   }, [navigate]);
 
@@ -93,6 +103,9 @@ const Recipe = () => {
       navigate('/login'); // Redirect to the login page
       return;
     }
+    const decodedToken = jwtDecode(token);
+    const userId = decodedToken.userId;
+    formData.append('authorId', userId);
 
     try {
       const response = await fetch('http://localhost:3000/recipe/post-recipe', {

@@ -3,7 +3,7 @@ const Recipe = require('../Models/Recipe');
 
 const handleRecipe = async (req, res) => {
     try {
-        const { title, description, category, cookingTime, servings, tags,reviews } = req.body;
+        const { title, description, category, cookingTime, servings, tags,reviews,author } = req.body;
         let { ingredients, steps } = req.body;
 
         // Parse JSON strings if necessary
@@ -29,6 +29,7 @@ const handleRecipe = async (req, res) => {
             servings,
             tags,
             reviews,
+            author: req.user._id, // Assuming you're using authentication middleware to get the user
         };
 
         // Save the recipe to the database (assuming you have a Recipe model)

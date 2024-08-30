@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ReviewRecipe = () => {
-    const [review, setReview] = useState({ name: '', rating: 0, comment: '' });
+    const recipeId = window.location.pathname.split("/")[2];
+    
+   // const { recipeId } = useParams(); // Get recipeId from URL params
+    console.log("recipeId from frontend",recipeId);
+    const [review, setReview] = useState({ recipeId, category: '', rating: 0, comment: '' });
     const [submitted, setSubmitted] = useState(false);
+
+    // useEffect(() => {
+    //     if (submitted) {
+    //         toast.success('Your review has been submitted successfully!');
+    //         setSubmitted(false); // Reset submitted state after showing the toast
+    //     }
+    // }, [submitted]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -15,12 +29,26 @@ const ReviewRecipe = () => {
         setReview({ ...review, rating });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (review.name && review.rating && review.comment) {
-            // Handle form submission, e.g., send data to server
+        try {
+            const response = await fetch(`http://localhost:3000/ReviewRecipe/recipe`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(review),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error response from server:', errorData);
+                throw new Error('Failed to submit review');
+            }
+
+            toast.success('Review submitted successfully');
             setSubmitted(true);
-            setReview({ name: '', rating: 0, comment: '' });
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            toast.error('Failed to submit review');
         }
     };
 
@@ -30,25 +58,23 @@ const ReviewRecipe = () => {
             <div className="container mx-auto py-12 px-4 flex-grow mt-28">
                 <h1 className="text-4xl font-bold text-center text-green-600 mb-12">Submit Your Review</h1>
 
-                {submitted && (
-                    <div className="bg-green-100 text-green-800 p-4 rounded-lg mb-6 text-center">
-                        Thank you for your review!
-                    </div>
-                )}
-
                 <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg mx-auto">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label className="block text-lg font-semibold mb-2 text-gray-700">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={review.name}
+                            <label className="block text-lg font-semibold mb-2 text-gray-700">What you like the most in the recipe</label>
+                            <select
+                                name="category"
+                                value={review.category}
                                 onChange={handleInputChange}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                                placeholder="Enter your name"
+                                className="w-full border border-gray-300 p-2 rounded-lg"
                                 required
-                            />
+                            >
+                                <option value="">Select a category</option>
+                                <option value="Food">Food</option>
+                                <option value="Cooking style">Cooking style</option>
+                                <option value="Value of money">Value of money</option>
+                                <option value="Taste">Taste</option>
+                            </select>
                         </div>
 
                         <div>
@@ -90,6 +116,7 @@ const ReviewRecipe = () => {
                 </div>
             </div>
             <Footer />
+            <ToastContainer />
         </div>
     );
 };
