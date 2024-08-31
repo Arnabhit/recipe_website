@@ -11,7 +11,7 @@ const Allrecipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/retrieve/retrieve`, {
+        const response = await fetch(`https://recipe-website-1-yxg0.onrender.com/retrieve/retrieve`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const Allrecipes = () => {
               {filteredRecipes.map((recipe) => (
                 <div key={recipe._id} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4 ">
                   <div className="bg-white shadow-md rounded-lg overflow-hidden" onClick={() => handleRecipeClick(recipe._id)}>
-                    <img src={`http://localhost:3000/${recipe.image}`} alt={recipe.title}   className="w-full h-48 object-cover cursor-pointer" />
+                    <img src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`} alt={recipe.title}   className="w-full h-48 object-cover cursor-pointer" />
                     
                     <div className="p-4">
                       <h3 className="text-xl font-semibold">{recipe.title}</h3>

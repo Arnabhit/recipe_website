@@ -107,7 +107,7 @@ const Recipe = () => {
     formData.append('authorId', userId);
 
     try {
-      const response = await fetch('http://localhost:3000/recipe/post-recipe', {
+      const response = await fetch('https://recipe-website-1-yxg0.onrender.com/recipe/post-recipe', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

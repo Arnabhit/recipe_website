@@ -46,7 +46,7 @@ const HomePage = ({ category }) => {
       try {
         const query = category ? `?category=${category}` : "";
         const response = await fetch(
-          `http://localhost:3000/retrieve/retrieve${query}`
+          `https://recipe-website-1-yxg0.onrender.com/retrieve/retrieve${query}`
         );
         const data = await response.json();
         setRecipes(data);
@@ -99,7 +99,7 @@ const HomePage = ({ category }) => {
             >
               <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                 <img
-                  src={`http://localhost:3000/${recipe.image}`}
+                  src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`}
                   alt={recipe.title}
                   onClick={() => handleRecipeClick(recipe._id)}
                   className="w-full h-48 object-cover"
@@ -136,7 +136,7 @@ const HomePage = ({ category }) => {
                 <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
-                    src={`http://localhost:3000/${recipe.image}`}
+                    src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`}
                     alt={recipe.title}
                     className="w-full h-48 object-cover"
                     onClick={() => handleRecipeClick(recipe._id)}
@@ -174,7 +174,7 @@ const HomePage = ({ category }) => {
                 <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
-                    src={`http://localhost:3000/${recipe.image}`}
+                    src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`}
                     alt={recipe.title}
                     className="w-full h-48 object-cover"
                     onClick={() => handleRecipeClick(recipe._id)}
@@ -211,7 +211,7 @@ const HomePage = ({ category }) => {
                 <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
-                    src={`http://localhost:3000/${recipe.image}`}
+                    src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`}
                     alt={recipe.title}
                     className="w-full h-48 object-cover"
                     onClick={() => handleRecipeClick(recipe._id)}
