@@ -46,7 +46,7 @@ const HomePage = ({ category }) => {
       try {
         const query = category ? `?category=${category}` : "";
         const response = await fetch(
-          `https://recipe-website-lyart.vercel.app/retrieve/retrieve${query}`
+          `http://localhost:3000/retrieve/retrieve${query}`
         );
         const data = await response.json();
         setRecipes(data);
@@ -99,7 +99,7 @@ const HomePage = ({ category }) => {
             >
               <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                 <img
-                  src={`https://recipe-website-lyart.vercel.app/${recipe.image}`}
+                  src={`http://localhost:3000/${recipe.image}`}
                   alt={recipe.title}
                   onClick={() => handleRecipeClick(recipe._id)}
                   className="w-full h-48 object-cover"
@@ -131,12 +131,12 @@ const HomePage = ({ category }) => {
         <h2 className="text-3xl font-bold mb-6">Vegetarian Recipes</h2>
         <Slider {...settings}>
           {recipes
-            .filter((recipe) => recipe.category === "Non-Vegetarian")
+            .filter((recipe) => recipe.category === "Vegetarian")
             .map((recipe) => (
                 <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
-                    src={`https://recipe-website-lyart.vercel.app/${recipe.image}`}
+                    src={`http://localhost:3000/${recipe.image}`}
                     alt={recipe.title}
                     className="w-full h-48 object-cover"
                     onClick={() => handleRecipeClick(recipe._id)}
@@ -174,7 +174,7 @@ const HomePage = ({ category }) => {
                 <div key={recipe._id} className="p-2">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
                   <img
-                    src={`https://recipe-website-lyart.vercel.app/${recipe.image}`}
+                    src={`http://localhost:3000/${recipe.image}`}
                     alt={recipe.title}
                     className="w-full h-48 object-cover"
                     onClick={() => handleRecipeClick(recipe._id)}
@@ -203,29 +203,40 @@ const HomePage = ({ category }) => {
 
       {/* Seasonal Recipes Section */}
       <section className="container mx-auto py-12 px-4 bg-green-50">
-                <h2 className="text-3xl font-bold mb-6">Seasonal Recipes</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {recipes.filter(recipe => recipe.category === "Seasonal").map((recipe) => (
-                        <div
-                            key={recipe._id}
-                            className="p-4"
-                            onClick={() => handleRecipeClick(recipe._id)}
-                        >
-                            <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
-                                <img
-                                    src={`https://recipe-website-lyart.vercel.app/${recipe.image}`}
-                                    alt={recipe.title}
-                                    className="w-full h-48 object-cover"
-                                />
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold">{recipe.title}</h3>
-                                    <p className="text-gray-600 mt-2">{recipe.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+        <h2 className="text-3xl font-bold mb-6">Seasonal Recipes</h2>
+        <Slider {...settings}>
+          {recipes
+            .filter((recipe) => recipe.category === "Seasonal")
+            .map((recipe) => (
+                <div key={recipe._id} className="p-2">
+                <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
+                  <img
+                    src={`http://localhost:3000/${recipe.image}`}
+                    alt={recipe.title}
+                    className="w-full h-48 object-cover"
+                    onClick={() => handleRecipeClick(recipe._id)}
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold">{recipe.title}</h3>
+                    <p
+                      className={`text-gray-600 mt-2 ${
+                        expandedRecipes[recipe._id] ? "" : "line-clamp-2"
+                      }`}
+                    >
+                      {recipe.description}
+                    </p>
+                    <button
+                      onClick={() => toggleDescription(recipe._id)}
+                      className="flex gap-4 justify-center self-start px-10 py-4 mt-4 font-bold tracking-wide text-black bg-white rounded-xl max-md:px-5"
+                    >
+                      {expandedRecipes[recipe._id] ? "See Less" : "See More"}
+                    </button>
+                  </div>
                 </div>
-            </section>
+              </div>
+            ))}
+        </Slider>
+      </section>
 
       <footer className="mt-12">
         <Footer />

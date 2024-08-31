@@ -8,6 +8,7 @@ import RecipeDescription from './pages/RecipeDescription';
 import Allrecipes from './pages/Allrecipes';
 import Category from './pages/Category';
 import ReviewRecipe from './pages/ReviewRecipe';
+import Contact from './pages/Contact';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,13 +25,11 @@ function App() {
        <Route path="/allrecipes" element={<Allrecipes />} />
        <Route path="/Category" element={<Category/>} />
        <Route path="/ReviewRecipe/:reviewId/rec" element={<ReviewRecipe/>} />
+       <Route path="Contact" element={<Contact/>} />
 
        
       
-      {/* <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/business" element={<BusinessPage />} />
-      </Routes> */}
+   
        </Routes>
     </Router>
       

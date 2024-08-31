@@ -7,17 +7,17 @@ const Footer = () => {
     <footer className="bg-orange-400 text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold">YourApp</h2>
-          <p className="text-sm mt-2">Connecting you with the best businesses in town.</p>
+          <h2 className="text-2xl font-bold">Recipe Haven</h2>
+          <p className="text-sm mt-2">Connecting you with the best recipes in town.</p>
         </div>
 
         <div className="flex flex-wrap justify-center md:justify-start space-x-4">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <Link to="/about" className="text-white hover:text-gray-300">About Us</Link>
-          <Link to="/contact" className="text-white hover:text-gray-300">Contact</Link>
-          <Link to="/listyourbusiness" className="text-white hover:text-gray-300">List Your Business</Link>
-          <Link to="/terms" className="text-white hover:text-gray-300">Terms & Conditions</Link>
-          <Link to="/privacy" className="text-white hover:text-gray-300">Privacy Policy</Link>
+          <Link to="/maintain" className="text-white hover:text-gray-300">About Us</Link>
+          <Link to="/Contact" className="text-white hover:text-gray-300">Contact</Link>
+          <Link to="/recipe" className="text-white hover:text-gray-300">List Your Recipe</Link>
+          <Link to="/maintain" className="text-white hover:text-gray-300">Terms & Conditions</Link>
+          <Link to="/maintain" className="text-white hover:text-gray-300">Privacy Policy</Link>
         </div>
 
         <div className="flex justify-center md:justify-end space-x-4">
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-4 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} YourApp. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Recipe Haven. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav className="bg-slate-800 fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="text-white text-2xl font-bold">RecipeShare</div>
+        <div className="text-white text-2xl font-bold">Recipe Haven</div>
         <div className="block lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}

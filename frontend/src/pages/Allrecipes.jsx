@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+
 
 const Allrecipes = () => {
   const [selectedFilters, setSelectedFilters] = useState(['All']); // Start with 'All' selected by default
   const [recipes, setRecipes] = useState([]); // State to hold the fetched recipes
-
+  const navigate = useNavigate();
   // Fetch data from the database
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`https://recipe-website-lyart.vercel.app/retrieve/retrieve`, {
+        const response = await fetch(`http://localhost:3000/retrieve/retrieve`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -29,6 +31,10 @@ const Allrecipes = () => {
 
     fetchRecipes();
   }, []);
+
+  const handleRecipeClick = (recipeId) => {
+    navigate(`/recipe/${recipeId}`);
+  };
 
   // Handle checkbox changes
   const handleFilterChange = (filter) => {
@@ -88,6 +94,7 @@ const Allrecipes = () => {
                   type="checkbox"
                   checked={selectedFilters.includes('Non-Vegetarian')}
                   onChange={() => handleFilterChange('Non-Vegetarian')}
+                 
                 />
                 Non-Vegetarian
               </label>
@@ -111,8 +118,9 @@ const Allrecipes = () => {
             <div className="flex flex-wrap -mx-2">
               {filteredRecipes.map((recipe) => (
                 <div key={recipe._id} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
-                  <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src={`https://recipe-website-lyart.vercel.app/${recipe.image}`} alt={recipe.title} className="w-full h-48 object-cover" />
+                  <div className="bg-white shadow-md rounded-lg overflow-hidden" onClick={() => handleRecipeClick(recipe._id)}>
+                    <img src={`http://localhost:3000/${recipe.image}`} alt={recipe.title}   className="w-full h-48 object-cover cursor-pointer" />
+                    
                     <div className="p-4">
                       <h3 className="text-xl font-semibold">{recipe.title}</h3>
                       <p className="text-gray-600 mt-2">{recipe.description}</p>
