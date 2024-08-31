@@ -1,4 +1,4 @@
-Project Overview
+<h1>Project Overview</h1>
 
 This is a Recipe sharing React project with a Node.js backend.
 
