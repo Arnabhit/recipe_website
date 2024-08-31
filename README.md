@@ -26,7 +26,7 @@ cd backend
 
 npm run start
 
-Frontend Technologies
+**Frontend Technologies**
 
 React
 
@@ -34,7 +34,7 @@ JavaScript
 
 taiwind
 
-Backend Technologies
+**Backend Technologies**
 
 Node.js
 
