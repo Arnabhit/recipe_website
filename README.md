@@ -4,7 +4,7 @@
 
 **Getting Started**
 
-git clone <repository-url>
+git clone (repository url)
 
 cd frontend
 
