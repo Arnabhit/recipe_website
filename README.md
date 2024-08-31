@@ -1,8 +1,8 @@
 <h1>Project Overview</h1>
 
-This is a Recipe sharing React project with a Node.js backend.
+<h3>This is a Recipe sharing React project with a Node.js backend.</h3>
 
-Getting Started
+**Getting Started**
 
 git clone <repository-url>
 
@@ -20,7 +20,7 @@ cd frontend
 
 npm run dev
 
-To run backend
+**To run backend**
 
 cd backend
 
