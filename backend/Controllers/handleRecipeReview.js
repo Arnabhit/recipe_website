@@ -6,7 +6,7 @@ const handleRecipeReview = async (req, res) => {
         const { recipeId, category, rating, comment } = req.body; // Expecting recipeId, category, rating, and comment in the request body
 
         // Find the recipe by ID using the actual recipeId variable
-        console.log("recipeId backend", recipeId);
+        //console.log("recipeId backend", recipeId);
         const recipe = await Recipe.findById(recipeId);
 
         if (!recipe) {

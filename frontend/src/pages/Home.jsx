@@ -78,9 +78,9 @@ const HomePage = ({ category }) => {
         className="h-[100vh] w-full bg-cover"
         style={{ backgroundImage: "url('/home.jpg')" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+       <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent flex items-center justify-center">
           <h1 className="text-white text-4xl lg:text-6xl font-bold">
-            Welcome to RecipeShare
+            Welcome to RecipeHaven
           </h1>
         </div>
       </div>

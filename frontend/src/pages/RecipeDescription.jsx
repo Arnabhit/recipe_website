@@ -26,7 +26,7 @@ const RecipeDescription = () => {
       }
     } else {
       toast.error("You must be logged in to edit recipes");
-      //navigate("/signin"); // Redirect to login page if not logged in
+      
     }
   }, [navigate]);
 
@@ -163,12 +163,12 @@ const RecipeDescription = () => {
       <div className="container mx-auto py-12 px-4 pt-24">
         <ToastContainer />
         <h2 className="text-3xl font-bold mb-6">{recipe.title}</h2>
-        <div className="flex ">
+        <div className="flex flex-col justify-center items-center ">
         
         <img
           src={`http://localhost:3000/${recipe.image}`}
           alt={recipe.title}
-          className="w-full h-64 object-cover m-4 "
+          className=" w-80 h-64  m-4 rounded-lg "
         />
         <p className="text-gray-800 mb-4 flex justify-center items-center text-xl font-semibold">{recipe.description}</p>
         </div>
@@ -206,7 +206,13 @@ const RecipeDescription = () => {
             <ul className="mt-2">
               {recipe.ratings.map((review, index) => (
                 <li key={index} className="border-b py-2">
-                  <strong>{review.author}:</strong> {review.comment}
+                  <strong>{review.author}</strong> {review.comment}
+                  <div className="flex mt-2">
+                    <span className="text-sm text-gray-900">
+                      Average Rating: {review.rating}
+
+                    </span>
+                    </div>
                 </li>
               ))}
             </ul>
@@ -238,7 +244,7 @@ const RecipeDescription = () => {
 
         
 {isModalOpen && (
-  <div className="fixed inset-0 flex items-center justify-center bg-red-600 bg-opacity-50">
+  <div className="fixed inset-0 flex items-center justify-center  bg-opacity-50">
     <div className="bg-white p-8 rounded shadow-lg w-2/3">
       <h2 className="text-2xl font-semibold mb-4">Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
@@ -291,7 +297,7 @@ const RecipeDescription = () => {
         <input
             type="file"
             name="image"
-            onChange={handleImageChange}
+            //onChange={handleImageChange}
             className="w-full px-4 py-2 border rounded"
         />
     </div>

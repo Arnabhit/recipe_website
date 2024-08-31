@@ -24,7 +24,7 @@ const Recipe = () => {
     const token = localStorage.getItem('token');
     if (!token) {
       toast('Please log in first!');
-      navigate('/signin'); // Redirect to the login page
+      navigate('/signin'); 
     }
     else
     {
@@ -36,13 +36,13 @@ const Recipe = () => {
     }
   }, [navigate]);
 
-  // Handle input changes for form fields
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecipeData({ ...recipeData, [name]: value });
   };
 
-  // Handle changes for ingredients
+  
   const handleIngredientChange = (index, e) => {
     const { name, value } = e.target;
     const ingredients = [...recipeData.ingredients];
@@ -50,7 +50,7 @@ const Recipe = () => {
     setRecipeData({ ...recipeData, ingredients });
   };
 
-  // Handle changes for steps
+  
   const handleStepChange = (index, e) => {
     const { name, value } = e.target;
     const steps = [...recipeData.steps];
@@ -58,12 +58,12 @@ const Recipe = () => {
     setRecipeData({ ...recipeData, steps });
   };
 
-  // Handle image change
+
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
   };
 
-  // Add a new ingredient
+  
   const handleAddIngredient = () => {
     setRecipeData({
       ...recipeData,
@@ -71,7 +71,6 @@ const Recipe = () => {
     });
   };
 
-  // Add a new step
   const handleAddStep = () => {
     setRecipeData({
       ...recipeData,
@@ -79,20 +78,20 @@ const Recipe = () => {
     });
   };
 
-  // Handle form submission
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     for (const key in recipeData) {
       if (Array.isArray(recipeData[key])) {
-        formData.append(key, JSON.stringify(recipeData[key])); // Convert arrays to JSON strings
+        formData.append(key, JSON.stringify(recipeData[key])); 
       } else {
         formData.append(key, recipeData[key]);
       }
     }
     if (image) {
-      formData.append('image', image); // Append the image file
+      formData.append('image', image); 
     }
 
     const token = localStorage.getItem('token');
@@ -100,7 +99,7 @@ const Recipe = () => {
   
     if (!token) {
       toast('Please log in first!');
-      navigate('/login'); // Redirect to the login page
+      navigate('/login'); 
       return;
     }
     const decodedToken = jwtDecode(token);
@@ -112,7 +111,7 @@ const Recipe = () => {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          // Do not set Content-Type header here when using FormData
+          
         },
         body: formData,
       });
@@ -121,7 +120,7 @@ const Recipe = () => {
         const result = await response.json();
         toast('Recipe submitted successfully!');
         console.log('Recipe submitted:', result);
-        navigate('/'); // Redirect or reset after successful submission
+        navigate('/'); 
       } else {
         const errorData = await response.json();
         console.error('Error:', errorData);
@@ -152,7 +151,7 @@ const Recipe = () => {
             required
           />
         </div>
-        {/* Description */}
+       
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
             Description
@@ -246,7 +245,7 @@ const Recipe = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        {/* Cooking Time */}
+        // Cooking Time
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cookingTime">
             Cooking Time (in minutes)
@@ -260,7 +259,7 @@ const Recipe = () => {
             required
           />
         </div>
-        {/* Servings */}
+        // Servings
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="servings">
             Servings
@@ -274,7 +273,7 @@ const Recipe = () => {
             required
           />
         </div>
-        {/* Tags */}
+        // Tags
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tags">
             Tags (comma separated)
@@ -287,7 +286,7 @@ const Recipe = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        {/* Image */}
+        // Image
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
             Recipe Image
@@ -300,7 +299,7 @@ const Recipe = () => {
             className="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none"
           />
         </div>
-        {/* Submit Button */}
+        // Submit Button
         <button
           type="submit"
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

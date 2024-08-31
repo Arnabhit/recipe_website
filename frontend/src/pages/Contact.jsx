@@ -10,10 +10,10 @@ const Contact = () => {
   }, 3000);
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault(); 
     const form = event.target;
     
-    // Send form data to Formspree endpoint
+    
     try {
       const response = await fetch(form.action, {
         method: 'POST',
@@ -30,7 +30,7 @@ const Contact = () => {
 
       if (response.ok) {
         alert('Form submitted successfully!');
-        // You can perform any additional actions after successful form submission
+        
       } else {
         throw new Error('Form submission failed');
       }
@@ -58,21 +58,21 @@ const Contact = () => {
               type="text"
               placeholder="Name"
               name="username"
-              required // Make this field required
+              required 
             />
             <input
               className="bg-slate-200 h-10 rounded-2xl pl-4"
               type="email"
               placeholder="Email"
               name="email"
-              required // Make this field required
+              required 
             />
             <input
               className="bg-slate-200 h-10 rounded-2xl pl-4"
               type="tel"
               placeholder="Phone number"
               name="phoneNumber"
-              required // Make this field required
+              required 
             />
             <select className="bg-slate-200 h-10 rounded-2xl pl-4 " name="howDidYouFindUs" required>
               

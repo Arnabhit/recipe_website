@@ -10,6 +10,7 @@ const retrieveRecipe = require('./Routes/retrieveRecipe');
 const retrieveRecipeById = require('./Routes/retrieveRecipeById');
 const reviewrecipe = require('./Routes/reviewrecipe');
 const port = process.env.PORT || 3000;
+const uploadeditrouter = require('./Routes/uploadeditrouter');
 
 app.use(cors());
 app.use(express.json()); // middleware to parse json bodies
@@ -30,6 +31,7 @@ const connectDb = async (uri) => {
 connectDb("mongodb+srv://ARNAB123:aRNAB@cluster0.cqdf1cj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/recipe");
 
 app.use("/user",userrouter);
+app.use("/upload", uploadeditrouter);
 app.use("/recipe",reciperouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/retrieve", retrieveRecipe);

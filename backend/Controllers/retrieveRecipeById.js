@@ -3,14 +3,14 @@ const Review = require('../Models/Review'); // Import the Review model (if revie
 
 const retrieveRecipeById = async (req, res) => {
     const { id } = req.params; // Extract the recipe ID from the request parameters
-    console.log("id",id);
+    //console.log("id",id);
 
     try {
         // Fetch the recipe by its ID
         const recipe = await Recipe.findById(id);
 
         // Check if the recipe exists
-        console.log("recipe",recipe.image);
+        //console.log("recipe",recipe.image);
         if (!recipe) {
             return res.status(404).json({ error: 'Recipe not found' });
         }

@@ -7,8 +7,8 @@ const Footer = () => {
     <footer className="bg-orange-400 text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold">Recipe Haven</h2>
-          <p className="text-sm mt-2">Connecting you with the best recipes in town.</p>
+          <h2 className="text-2xl font-bold ml-5">Recipe Haven</h2>
+          <p className="text-sm mt-2 ml-5">Connecting you with the best recipes in town.</p>
         </div>
 
         <div className="flex flex-wrap justify-center md:justify-start space-x-4">
@@ -30,7 +30,7 @@ const Footer = () => {
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
             <FaInstagram size={24} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 pr-4">
             <FaLinkedin size={24} />
           </a>
         </div>
