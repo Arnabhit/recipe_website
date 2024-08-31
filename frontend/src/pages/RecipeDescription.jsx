@@ -35,9 +35,9 @@ const RecipeDescription = () => {
         setFormData({
             title: recipe.title,
             description: recipe.description,
-            // Convert each ingredient object to a string in the format "name: quantity"
+           
             ingredients: recipe.ingredients.map(ingredient => `${ingredient.name}: ${ingredient.quantity}`).join('\n'),
-            // Convert each step object to a string containing the instruction
+            
             steps: recipe.steps.map(step => step.instruction).join('\n'),
         });
         setIsModalOpen(true);
@@ -75,7 +75,7 @@ const RecipeDescription = () => {
     e.preventDefault();
 
     try {
-      // Split the ingredients string into an array of objects
+     
       const ingredientsArray = formData.ingredients
         .split("\n")
         .map((ingredient) => {
@@ -85,7 +85,7 @@ const RecipeDescription = () => {
           return { name, quantity };
         });
 
-      // Split the steps string into an array of objects
+      
       const stepsArray = formData.steps
         .split("\n")
         .map((instruction, index) => ({

@@ -8,17 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 const ReviewRecipe = () => {
     const recipeId = window.location.pathname.split("/")[2];
 
-   // const { recipeId } = useParams(); // Get recipeId from URL params
+   
     console.log("recipeId from frontend",recipeId);
     const [review, setReview] = useState({ recipeId, category: '', rating: 0, comment: '' });
     const [submitted, setSubmitted] = useState(false);
 
-    // useEffect(() => {
-    //     if (submitted) {
-    //         toast.success('Your review has been submitted successfully!');
-    //         setSubmitted(false); // Reset submitted state after showing the toast
-    //     }
-    // }, [submitted]);
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
