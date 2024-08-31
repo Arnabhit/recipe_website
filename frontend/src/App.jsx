@@ -9,6 +9,7 @@ import Allrecipes from './pages/Allrecipes';
 import Category from './pages/Category';
 import ReviewRecipe from './pages/ReviewRecipe';
 import Contact from './pages/Contact';
+import Maintain from './pages/Maintainance';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,6 +27,7 @@ function App() {
        <Route path="/Category" element={<Category/>} />
        <Route path="/ReviewRecipe/:reviewId/rec" element={<ReviewRecipe/>} />
        <Route path="Contact" element={<Contact/>} />
+       <Route path="/Maintain" element={<Maintain/>} />
 
        
       

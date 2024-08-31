@@ -1,19 +1,19 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const Recipe = require('../Models/Recipe'); // Replace with your actual model
+const Recipe = require('../Models/Recipe'); 
 
 const uploadedit = () => {
-  const app = express(); // Create an Express application
-  const router = express.Router(); // Create a router
+  const app = express(); 
+  const router = express.Router(); 
 
   // Set up multer storage
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/'); // Directory to save the uploaded files
+      cb(null, 'uploads/'); 
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + '_' + file.originalname); // Name of the file in the directory
+      cb(null, Date.now() + '_' + file.originalname); 
     }
   });
 
@@ -25,14 +25,14 @@ const uploadedit = () => {
       const filePath = `/uploads/${req.file.filename}`;
       
       try {
-        // Assuming you have a recipeId in the request body to identify the recipe
+        
         const { recipeId } = req.body;
 
-        // Update the database with the image path
+       
         const updatedRecipe = await Recipe.findByIdAndUpdate(
           recipeId,
           { image: filePath },
-          { new: true } // Returns the updated document
+          { new: true } 
         );
 
         if (updatedRecipe) {

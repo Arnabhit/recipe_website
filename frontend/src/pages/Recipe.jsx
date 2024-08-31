@@ -107,7 +107,7 @@ const Recipe = () => {
     formData.append('authorId', userId);
 
     try {
-      const response = await fetch('https://recipe-website-1-yxg0.onrender.com/recipe/post-recipe', {
+      const response = await fetch('http://localhost:3000/recipe/post-recipe', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -137,7 +137,7 @@ const Recipe = () => {
       <ToastContainer />
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-4">Submit a Recipe</h2>
-        {/* Title */}
+      
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
             Recipe Title
@@ -164,7 +164,7 @@ const Recipe = () => {
             required
           />
         </div>
-        {/* Ingredients */}
+       
         <div className="mb-4 flex flex-col ">
           <label className="block text-gray-700 text-sm font-bold mb-2">Ingredients</label>
           {recipeData.ingredients.map((ingredient, index) => (
@@ -200,7 +200,7 @@ const Recipe = () => {
           </div>
          
         </div>
-        {/* Steps */}
+        
         <div className="mb-4 flex flex-col">
           <label className="block text-gray-700 text-sm font-bold mb-2">Preparation Steps</label>
           {recipeData.steps.map((step, index) => (
@@ -226,7 +226,7 @@ const Recipe = () => {
           </div>
           
         </div>
-        {/* Category */}
+       
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
             Category
@@ -245,7 +245,7 @@ const Recipe = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        // Cooking Time
+      
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cookingTime">
             Cooking Time (in minutes)
@@ -259,7 +259,7 @@ const Recipe = () => {
             required
           />
         </div>
-        // Servings
+        
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="servings">
             Servings
@@ -273,7 +273,7 @@ const Recipe = () => {
             required
           />
         </div>
-        // Tags
+        
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tags">
             Tags (comma separated)
@@ -286,7 +286,7 @@ const Recipe = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        // Image
+      
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
             Recipe Image

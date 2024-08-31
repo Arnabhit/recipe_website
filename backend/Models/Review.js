@@ -25,7 +25,7 @@ const reviewSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // Add any other fields you want, like userId, userName, etc.
+  
 });
 
 const Review = mongoose.model('Review', reviewSchema);

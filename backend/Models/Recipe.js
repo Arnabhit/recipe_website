@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     title: {
         type: String,
-        //required: true,
+        required: true,
         trim: true,
     },
     description: {
         type: String,
-        //required: true,
+        required: true,
         trim: true,
     },
     ingredients: [
@@ -24,26 +24,26 @@ const recipeSchema = new mongoose.Schema({
         }
     ],
     image: {
-        type: String,  // URL or file path to the recipe image
-        //required: true,
+        type: String,
+        required: true,
     },
     category: {
         type: String,
         enum: ['Vegetarian', 'Non-Vegetarian', 'Seasonal', 'Other'],  // Enum to categorize the recipe
-        //required: true,
+        required: true,
     },
     cookingTime: {
-        type: Number, // Cooking time in minutes
-        //required: true,
+        type: Number, 
+        required: true,
     },
     servings: {
         type: Number,  // Number of servings
-        //required: true,
+        required: true,
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',  // Reference to the user who created the recipe
-        //required: true,
+        required: true,
     },
     createdAt: {
         type: Date,
@@ -55,7 +55,7 @@ const recipeSchema = new mongoose.Schema({
     },
     tags: [
         {
-            type: String,  // Additional tags for searching and filtering
+            type: String,  
             trim: true,
         }
     ],
@@ -73,10 +73,7 @@ const recipeSchema = new mongoose.Schema({
     }
 });
 
-// recipeSchema.pre('save', function(next) {
-//     this.updatedAt = Date.now();
-//     next();
-// });
+
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 

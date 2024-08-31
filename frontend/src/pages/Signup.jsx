@@ -15,7 +15,7 @@ const Signup = () => {
     const userData = { name, email, password };
 
     try {
-      const response = await fetch('https://recipe-website-1-yxg0.onrender.com/user/signup', {
+      const response = await fetch('http://localhost:3000/user/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

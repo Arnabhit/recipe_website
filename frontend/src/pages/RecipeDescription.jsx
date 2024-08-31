@@ -107,7 +107,7 @@ const RecipeDescription = () => {
     };
 
       const response = await fetch(
-        `https://recipe-website-1-yxg0.onrender.com/retrieveById/retrieve/${recipeId}`,
+        `http://localhost:3000/retrieveById/retrieve/${recipeId}`,
         {
           method: "PUT",
           headers: {
@@ -136,7 +136,7 @@ const RecipeDescription = () => {
     const fetchRecipe = async () => {
       try {
         const response = await fetch(
-          `https://recipe-website-1-yxg0.onrender.com/retrieveById/retrieve/${recipeId}`
+          `http://localhost:3000/retrieveById/retrieve/${recipeId}`
         );
         if (!response.ok) {
           throw new Error("Recipe not found");
@@ -166,7 +166,7 @@ const RecipeDescription = () => {
         <div className="flex flex-col justify-center items-center ">
         
         <img
-          src={`https://recipe-website-1-yxg0.onrender.com/${recipe.image}`}
+          src={`http://localhost:3000/${recipe.image}`}
           alt={recipe.title}
           className=" w-80 h-64  m-4 rounded-lg "
         />

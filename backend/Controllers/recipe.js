@@ -6,7 +6,7 @@ const handleRecipe = async (req, res) => {
         const { title, description, category, cookingTime, servings, tags,reviews,author } = req.body;
         let { ingredients, steps } = req.body;
 
-        // Parse JSON strings if necessary
+      
         if (typeof ingredients === 'string') {
             ingredients = JSON.parse(ingredients);
         }
@@ -14,10 +14,10 @@ const handleRecipe = async (req, res) => {
             steps = JSON.parse(steps);
         }
 
-        // Handle image
+       
         const image = req.file ? req.file.path : '';
 
-        // Create a new recipe object
+       
         const newRecipe = {
             title,
             description,
@@ -29,10 +29,10 @@ const handleRecipe = async (req, res) => {
             servings,
             tags,
             reviews,
-            author: req.user._id, // Assuming you're using authentication middleware to get the user
+            author: req.user._id, 
         };
 
-        // Save the recipe to the database (assuming you have a Recipe model)
+        
         const recipe = await Recipe.create(newRecipe);
 
         res.status(201).json(recipe);

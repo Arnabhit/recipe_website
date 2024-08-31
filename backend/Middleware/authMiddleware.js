@@ -3,7 +3,7 @@ const User = require('../Models/User');
 const { model } = require('mongoose');
 
 const authMiddleware = async (req, res, next) => {
-  //console.log("middleware",req.body)
+  
     const authHeader = req.header('Authorization');
     if (!authHeader) {
       console.log('Authorization header missing');
@@ -11,11 +11,9 @@ const authMiddleware = async (req, res, next) => {
     }
   
     const token = authHeader.replace('Bearer ', '');
-   // console.log('Token:', token); // Log token for debugging
     
     try {
       const decoded = jwt.verify(token, process.env.KEY);
-      //console.log('Decoded Token:', decoded); // Log decoded token for debugging
   
       const user = await User.findById(decoded.userId);
       if (!user) {

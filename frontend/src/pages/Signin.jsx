@@ -13,7 +13,7 @@ const Signin = () => {
     const userData = { email, password };
 
     try {
-      const response = await fetch('https://recipe-website-1-yxg0.onrender.com/user/signin', {
+      const response = await fetch('http://localhost:3000/user/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -13,11 +13,11 @@ const Footer = () => {
 
         <div className="flex flex-wrap justify-center md:justify-start space-x-4">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <Link to="/maintain" className="text-white hover:text-gray-300">About Us</Link>
+          <Link to="/Maintain" className="text-white hover:text-gray-300">About Us</Link>
           <Link to="/Contact" className="text-white hover:text-gray-300">Contact</Link>
           <Link to="/recipe" className="text-white hover:text-gray-300">List Your Recipe</Link>
-          <Link to="/maintain" className="text-white hover:text-gray-300">Terms & Conditions</Link>
-          <Link to="/maintain" className="text-white hover:text-gray-300">Privacy Policy</Link>
+          <Link to="/Maintain" className="text-white hover:text-gray-300">Terms & Conditions</Link>
+          <Link to="/Maintain" className="text-white hover:text-gray-300">Privacy Policy</Link>
         </div>
 
         <div className="flex justify-center md:justify-end space-x-4">
