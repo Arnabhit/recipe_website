@@ -92,15 +92,7 @@ const Signup = () => {
           <p className="mt-6 text-center">
             Existing user? <Link to="/signin" className="text-orange-500">Login</Link>
           </p>
-          <div className="mt-6 text-center">
-            <p>Or sign up using</p>
-            <div className="flex justify-center space-x-4 mt-4">
-              <button className="text-2xl"><i className="fab fa-google"></i>
-              <FaFacebook size={24} /></button>
-              <button className="text-2xl"><i className="fab fa-facebook"></i></button>
-              <button className="text-2xl"><i className="fab fa-twitter"></i></button>
-            </div>
-          </div>
+          
         </div>
       </div>
       <ToastContainer /> {/* Render ToastContainer */}

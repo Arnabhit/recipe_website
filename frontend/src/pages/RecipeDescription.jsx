@@ -175,8 +175,8 @@ const RecipeDescription = () => {
        
 
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold">Ingredients</h2>
-          <ul className="list-disc ml-5 mt-2">
+          <h2 className="text-2xl font-bold">Ingredients</h2>
+          <ul className="list-disc ml-5 mt-2 text-lg font-semibold">
             {recipe.ingredients && recipe.ingredients.length > 0 ? (
               recipe.ingredients.map((ingredient, index) => (
                 <li key={index}>
@@ -191,10 +191,10 @@ const RecipeDescription = () => {
 
         <div className="mt-8">
           <h2 className="text-2xl font-semibold">Steps</h2>
-          <ol className="list-decimal ml-5 mt-2">
+          <ol className="list-decimal ml-5 mt-2 text-lg font-semibold">
             {recipe.steps.map((step, index) => (
               <li key={index}>
-                Step {step.stepNumber}: {step.instruction}
+                {step.instruction}
               </li>
             ))}
           </ol>

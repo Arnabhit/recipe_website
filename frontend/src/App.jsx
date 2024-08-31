@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 import Maintain from './pages/Maintainance';
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>

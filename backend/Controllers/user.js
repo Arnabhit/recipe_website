@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const jwt = require('jsonwebtoken');
 const { setUserId } = require("../Services/auth");
 require('dotenv').config();
-const User = require('../Models/User'); // Ensure you have the User model imported
+const User = require('../Models/User'); 
 
 const handleUserSignup = async (req, res) => {
     try {

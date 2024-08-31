@@ -82,14 +82,7 @@ const Signin = () => {
           <p className="mt-6 text-center">
             New user? <Link to="/signup" className="text-orange-500">Create an account</Link>
           </p>
-          <div className="mt-6 text-center">
-            <p>Or login using</p>
-            <div className="flex justify-center space-x-4 mt-4">
-              <button className="text-2xl"><i className="fab fa-google"></i></button>
-              <button className="text-2xl"><i className="fab fa-facebook"></i></button>
-              <button className="text-2xl"><i className="fab fa-twitter"></i></button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

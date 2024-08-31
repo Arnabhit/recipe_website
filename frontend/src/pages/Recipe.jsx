@@ -299,7 +299,7 @@ const Recipe = () => {
             className="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none"
           />
         </div>
-        // Submit Button
+        
         <button
           type="submit"
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
